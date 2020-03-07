@@ -22,14 +22,10 @@ class OrderService {
 
   Receipt prepareReceipt(List<PizzaOrder> pizzaOrders) {
     List<ReceiptItem> receiptItems = switch (LocalDate.now(clock).getDayOfWeek()) {
-      case MONDAY:
-        yield allPizzaSamePrice(pizzaOrders);
-      case WEDNESDAY:
-        yield twoSamePizzaForOne(pizzaOrders);
-      case FRIDAY:
-        yield freePackage(pizzaOrders);
-      default:
-        yield withoutDiscount(pizzaOrders);
+      case MONDAY -> allPizzaSamePrice(pizzaOrders);
+      case WEDNESDAY -> twoSamePizzaForOne(pizzaOrders);
+      case FRIDAY -> freePackage(pizzaOrders);
+      default -> withoutDiscount(pizzaOrders);
     };
     return getReceipt(receiptItems);
   }
