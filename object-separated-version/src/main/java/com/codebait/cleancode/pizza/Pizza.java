@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-class Pizza {
+public class Pizza {
 
   private String name;
   private BigDecimal price;

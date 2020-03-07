@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-class PizzaOrder {
+public class PizzaOrder {
 
   private Pizza pizza;
   private boolean takeaway;

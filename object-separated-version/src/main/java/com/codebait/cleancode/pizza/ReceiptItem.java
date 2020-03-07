@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-class ReceiptItem {
+public class ReceiptItem {
 
   private String name;
   private BigDecimal price;
