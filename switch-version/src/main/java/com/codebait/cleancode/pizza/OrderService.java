@@ -21,20 +21,16 @@ class OrderService {
   }
 
   Receipt prepareReceipt(List<PizzaOrder> pizzaOrders) {
-    List<ReceiptItem> receiptItems;
-    switch (LocalDate.now(clock).getDayOfWeek()) {
+    List<ReceiptItem> receiptItems = switch (LocalDate.now(clock).getDayOfWeek()) {
       case MONDAY:
-        receiptItems = allPizzaSamePrice(pizzaOrders);
-        break;
+        yield allPizzaSamePrice(pizzaOrders);
       case WEDNESDAY:
-        receiptItems = twoSamePizzaForOne(pizzaOrders);
-        break;
+        yield twoSamePizzaForOne(pizzaOrders);
       case FRIDAY:
-        receiptItems = freePackage(pizzaOrders);
-        break;
+        yield freePackage(pizzaOrders);
       default:
-        receiptItems = withoutDiscount(pizzaOrders);
-    }
+        yield withoutDiscount(pizzaOrders);
+    };
     return getReceipt(receiptItems);
   }
 
