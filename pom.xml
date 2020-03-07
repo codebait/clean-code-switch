@@ -11,6 +11,7 @@
   <modules>
     <module>switch-version</module>
     <module>object-separated-version</module>
+    <module>enum</module>
   </modules>
   <properties>
     <maven.compiler.source>13</maven.compiler.source>
