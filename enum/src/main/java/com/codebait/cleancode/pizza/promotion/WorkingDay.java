@@ -9,9 +9,9 @@ enum WorkingDay {
   FRIDAY(FreePackagePromotion::new),
   DEFAULT(NoDiscountPromotion::new);
 
-  private final Function<ReceiptItemCreator, OrderPromotionHandler> promotionHandlerFunction;
+  private final Function<ReceiptItemCreator, OrderPromotionApplier> promotionHandlerFunction;
 
-  WorkingDay(Function<ReceiptItemCreator, OrderPromotionHandler> promotionHandlerFunction) {
+  WorkingDay(Function<ReceiptItemCreator, OrderPromotionApplier> promotionHandlerFunction) {
     this.promotionHandlerFunction = promotionHandlerFunction;
   }
 
@@ -23,7 +23,7 @@ enum WorkingDay {
     }
   }
 
-  Function<ReceiptItemCreator, OrderPromotionHandler> getPromotionHandlerFunction() {
+  Function<ReceiptItemCreator, OrderPromotionApplier> getPromotionHandlerFunction() {
     return promotionHandlerFunction;
   }
 }

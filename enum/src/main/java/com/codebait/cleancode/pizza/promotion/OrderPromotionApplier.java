@@ -4,7 +4,7 @@ import com.codebait.cleancode.pizza.PizzaOrder;
 import com.codebait.cleancode.pizza.ReceiptItem;
 import java.util.List;
 
-public interface OrderPromotionHandler {
+public interface OrderPromotionApplier {
 
   List<ReceiptItem> getReceiptItems(List<PizzaOrder> pizzaOrders);
 }

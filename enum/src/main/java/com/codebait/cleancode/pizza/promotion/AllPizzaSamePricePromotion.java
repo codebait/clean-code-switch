@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class AllPizzaSamePricePromotion implements OrderPromotionHandler {
+class AllPizzaSamePricePromotion implements OrderPromotionApplier {
 
   private final ReceiptItemCreator receiptItemCreator;
 
