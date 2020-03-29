@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.Stream.Builder;
 
-class TwoForOnePromotion implements OrderPromotionHandler {
+class TwoForOnePromotion implements OrderPromotionApplier {
 
   private final ReceiptItemCreator receiptItemCreator;
 

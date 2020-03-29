@@ -5,7 +5,7 @@ import com.codebait.cleancode.pizza.ReceiptItem;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class NoDiscountPromotion implements OrderPromotionHandler {
+class NoDiscountPromotion implements OrderPromotionApplier {
 
   private final ReceiptItemCreator receiptItemCreator;
 

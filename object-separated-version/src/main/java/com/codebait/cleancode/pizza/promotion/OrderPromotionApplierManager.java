@@ -3,16 +3,16 @@ package com.codebait.cleancode.pizza.promotion;
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
 
-public class OrderPromotionHandlerManager {
+public class OrderPromotionApplierManager {
 
   private final ReceiptItemCreator receiptItemCreator;
 
-  public OrderPromotionHandlerManager(BigDecimal packagePrice) {
+  public OrderPromotionApplierManager(BigDecimal packagePrice) {
     this.receiptItemCreator = new ReceiptItemCreator(packagePrice);
   }
 
 
-  public OrderPromotionHandler getOrderHandler(DayOfWeek dayOfWeek) {
+  public OrderPromotionApplier getOrderHandler(DayOfWeek dayOfWeek) {
     return switch (dayOfWeek) {
       case MONDAY -> new AllPizzaSamePricePromotion(receiptItemCreator);
       case WEDNESDAY -> new TwoForOnePromotion(receiptItemCreator);
