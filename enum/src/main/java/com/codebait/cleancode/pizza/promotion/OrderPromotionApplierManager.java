@@ -12,10 +12,11 @@ public class OrderPromotionApplierManager {
   }
 
   public OrderPromotionApplier getOrderApplier(DayOfWeek dayOfWeek) {
-    return getOrderApplier(WorkingDay.of(dayOfWeek));
+    PromotionType of = PromotionType.of(dayOfWeek);
+    return getOrderApplier(of);
   }
 
-  private OrderPromotionApplier getOrderApplier(WorkingDay workingDay) {
-    return workingDay.getPromotionHandlerFunction().apply(receiptItemCreator);
+  public OrderPromotionApplier getOrderApplier(PromotionType promotionType) {
+    return promotionType.getPromotionHandlerFunction().apply(receiptItemCreator);
   }
 }

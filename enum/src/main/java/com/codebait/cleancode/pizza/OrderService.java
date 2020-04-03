@@ -1,5 +1,6 @@
 package com.codebait.cleancode.pizza;
 
+import com.codebait.cleancode.pizza.promotion.OrderPromotionApplier;
 import com.codebait.cleancode.pizza.promotion.OrderPromotionApplierManager;
 import java.math.BigDecimal;
 import java.time.Clock;
@@ -20,8 +21,9 @@ class OrderService {
 
   Receipt prepareReceipt(List<PizzaOrder> pizzaOrders) {
     DayOfWeek dayOfWeek = LocalDate.now(clock).getDayOfWeek();
-    return getReceipt(
-        orderPromotionApplierManager.getOrderApplier(dayOfWeek).getReceiptItems(pizzaOrders));
+    OrderPromotionApplier orderApplier = orderPromotionApplierManager.getOrderApplier(dayOfWeek);
+    List<ReceiptItem> receiptItems = orderApplier.getReceiptItems(pizzaOrders);
+    return getReceipt(receiptItems);
   }
 
 
